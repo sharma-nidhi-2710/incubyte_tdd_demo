@@ -6,7 +6,7 @@ class StringCalculator
     numbers = split_numbers(numbers_string, delimiter)
     check_for_negatives(numbers)
 
-    numbers.sum
+    input.include?('multiply') ? multiply(numbers) : numbers.sum
   end
 
   private
@@ -31,5 +31,13 @@ class StringCalculator
     if negative_numbers.any?
       raise "Negatives not allowed: #{negative_numbers.join(', ')}"
     end
+  end
+
+  def self.multiply(numbers)
+    multiply = 1
+    numbers.map do |num|
+      multiply *= num
+    end
+    multiply
   end
 end

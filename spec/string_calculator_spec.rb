@@ -23,4 +23,8 @@ describe "Add the numbers in a string" do
       StringCalculator.add("1,-2,3,-4")
     }.to raise_error("Negatives not allowed: -2, -4")
   end
+
+  it "should multiple the numbers if the operation is specified in the string" do
+    expect(StringCalculator.add("//op:multiply\n1,2,3,4")).to eq(24)
+  end
 end
